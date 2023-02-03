@@ -15,7 +15,7 @@
 				<div class="none sheet-flexed"id="hitpoints"><div class="sheet-slant " ><label class="sheet-slant">Hit Points</label></div><input type="number" class="sheet-circle" name="attr_hp" style="width:40px;margin:5px;"/></div>
 				<div class="none sheet-flexed"id="max_hitpoints"><div class="sheet-slant " ><label class="sheet-slant">Max HP</label></div><input type="number" class="sheet-circle" name="attr_hp_max" style="width:40px;margin:5px;"/></div>	
 				<div class="none sheet-flexed"><div class="sheet-slant " ><label class="sheet-slant">Level</label></div><input type="number" class="sheet-attribword sheet-circle" name="attr_level" style="width:40px;margin:5px;"/></div>
-				<div class="none sheet-flexed"><div class="sheet-slant"><label class="sheet-slant">XP</label></div><span class="tooltiptext">a test of tool tip.</span><input type="number" class="sheet-attribword sheet-circle" name="attr_xp" style="width:40px; margin:5px;"/></div>
+				<div class="none sheet-flexed"><div class="sheet-slant"><label class="sheet-slant">XP</label><span class="tooltiptext">lvl2 3/6 lvl3 6/15 lvl4 12/24</span></div><input type="number" class="sheet-attribword sheet-circle" name="attr_xp" style="width:40px; margin:5px;"/></div>
 				
 				<div id="instructions_xp" style="font-size:8px;width: 200px; display:none; ">dsfadadfafdsfs </div>
 		</div >
@@ -48,13 +48,13 @@
         <!--could add hide and show check boxes here to determine which items show below  -->
 		
 		
-		<div class='sheet-2colrow'>
-            <div class='sheet-col' >
+		<div class='sheet-2colrow' >
+            <div class='sheet-col' title="left side" >
                <details>
 				<summary><h3 style="cursor:pointer;">Attributes</h3></summary>
 				<div class = "sheet-border">
 					<div class="sheet-attributes">
-							<div class="sheet-slant"><label class="sheet-slant">STR <span name="attr_str_mod"></span></label></div>
+							<div class="sheet-slant"><label class="sheet-slant">STR <span name="attr_str_mod" title="str_mod"></span></label></div>
 							<div class="sheet-slant"><label class="sheet-slant">DEX <span name="attr_dex_mod"></span></label></div>
 							<div class="sheet-slant"><label class="sheet-slant">CON <span name="attr_con_mod"></span></label></div>
 							<div class="sheet-slant"><label class="sheet-slant">INT <span name="attr_int_mod"></span></label></div>
@@ -62,7 +62,7 @@
 							<div class="sheet-slant"><label class="sheet-slant">CHA <span name="attr_cha_mod"></span></label></div>
 					</div>
 					<div class="sheet-attributes">
-							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:5px;" name="attr_strength" /> 
+							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:5px;" name="attr_strength" title="strength from 3 to 18"/> 
 							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:10px;" name="attr_dexderity" />
 							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:10px;" name="attr_constitution" />
 							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:10px;" name="attr_intelegence" />
@@ -70,7 +70,7 @@
 							<input type="number" min="3" max="18" class="sheet-circle" style="width:30px; margin-left:10px;" name="attr_charisma"/>
 					</div>
 					<details>
-					<summary><h3>+1 modifier<h3></summary>
+					<summary><h3 title="Adds +1 for the corresponding attributes modifier">+1<h3></summary>
 					<div class="sheet-attributes">
 							<input type="checkbox" name="attr_str_mod_1" value="1">
 							<input type="checkbox" name="attr_dex_mod_1" value="1">
@@ -174,7 +174,7 @@
 				</div>
 				</details>
 				
-				</div>
+			</div>
             
             <div class='sheet-col'>
                 <details>
@@ -216,11 +216,26 @@
 				<details>
 				<summary><h3>Skills</h3></summary>
 				
-				<div class="sheet-border"> <!--total column width is 420px -->
+				<div class="sheet-border" title="Skills"> <!--total column width is 420px -->
 					<div class="sheet-flexed" style="justify-content:space-evenly ; width:400px; margin-top:5px; margin-bottom:5px; ">
 							<div class="sheet-flexed"style="justify-content: left; width:150px;">
-								<div class="sheet-slant" style="margin-right:5px; width:80px;"><label class="sheet-slant">Roll Modifier</label><span class="tooltiptext">Never blank. Always a number.</span></div>
-								<input type="number" class="sheet-circle"  name="attr_skill_roll" style="font-size:10px; width:40px;"/>
+								<div class="sheet-slant" style="margin-right:5px; width:80px;"><label class="sheet-slant">Roll Modifier</label><span class="tooltiptext">Set for each roll.</span></div>
+								<select name="attr_skill_roll" style="width:45px;">
+										<option value="-6" >-6</option>
+										<option value="-5">-5</option>
+										<option value="-4">-4</option>
+										<option value="-3">-3</option>
+										<option value="-2">-2</option>
+										<option value="-1">-1</option>
+										<option value="0"selected="selected">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>				
+								</select>
+								<!--input type="number" class="sheet-circle"  name="attr_skill_roll" style="font-size:10px; width:40px;"/-->
 							</div>
 							<!--div ><input type="button" class="" name="attr_clear_skill_roll" style="
 							</div-->
@@ -235,23 +250,51 @@
 					<div style="display:grid; grid-template-columns: 80px 40px 80px 40px 80px 40px; grid-template-rows: auto; grid-column-gap:5px;margin-left:5px; grid-row-gap:5px;">
 						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Administer<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_administer" value="&{template:WWN} {{color=bisque }} {{title=Skill Administer }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{administer} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{administer} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{administer} + @{skill_roll}]] }} {{desc=Keep an organization running smoothly, scribe things well, plan out logistics, identify incompetent or treacherous workers, analyze records or archives, or otherwise do things that an executive or middle-manager would need to do.}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_administer" value="-1" class="sheet-circle" style="width:30px;">
-						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Lead<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_lead" value="&{template:WWN} {{color=green }} {{title=Skill Lead }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{lead} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{lead} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{lead} + @{skill_roll}]] }} {{desc=Inspire others to follow your lead and believe in your plans and goals. Manage subordinates and keep them focused, loyal, and motivated in the face of danger or failure. A successful leader will keep their subordinate’s faith and confidence even whenreason might make the leader’s plan appear quesionable at best}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Lead<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_lead" value="&{template:WWN} {{color=bisque }}  {{title=Skill Lead }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{lead} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{lead} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{lead} + @{skill_roll}]] }} {{desc=Inspire others to follow your lead and believe in your plans and goals. Manage subordinates and keep them focused, loyal, and motivated in the face of danger or failure. A successful leader will keep their subordinate’s faith and confidence even whenreason might make the leader’s plan appear quesionable at best}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_lead" value="-1" class="sheet-circle" style="width:30px;">
-						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Sail <button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_sail" value="&{template:WWN} {{title=Skill Sail }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{sail} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{sail} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{sail} + @{skill_roll}]] }} {{desc=Sail or repair a ship, build small craft, navigate by the stars, read sea weather, manage sailors, and otherwise conduct the business of a professional mariner. This skill may apply to more esoteric means of vehicular travel in some societies.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Sail <button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_sail" value="&{template:WWN} {{color=bisque }} {{title=Skill Sail }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{sail} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{sail} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{sail} + @{skill_roll}]] }} {{desc=Sail or repair a ship, build small craft, navigate by the stars, read sea weather, manage sailors, and otherwise conduct the business of a professional mariner. This skill may apply to more esoteric means of vehicular travel in some societies.}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_sail" value="-1" class="sheet-circle" style="width:30px;">
-						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Connect<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_connect" value="&{template:WWN} {{title=Skill Connect }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{connect} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{connect} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{connect} + @{skill_roll}]] }} {{desc=Find or know people who are useful to your purposes, make friendships or social acquaintances,know who to talk to get favors or services, and call on the help or resources of organizations you belong to. Connect covers your PC’s ability to find the people you need, though convincing them to help may require more than this.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Connect<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_connect" value="&{template:WWN} {{color=bisque }} {{title=Skill Connect }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{connect} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{connect} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{connect} + @{skill_roll}]] }} {{desc=Find or know people who are useful to your purposes, make friendships or social acquaintances,know who to talk to get favors or services, and call on the help or resources of organizations you belong to. Connect covers your PC’s ability to find the people you need, though convincing them to help may require more than this.}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_connect" value="-1" class="sheet-circle" style="width:30px;">
-						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Magic<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_magic" value="&{template:WWN} {{title=Skill Magic }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{magic} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{magic} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{magic} + @{skill_roll}]] }} {{desc=Cast or analyze magic and know things about famous mages or notable magical events. Classes that can’t cast spells obtain only intellectual and scholarly benefits from this skill.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Magic<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_magic" value="&{template:WWN} {{color=bisque }} {{title=Skill Magic }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{magic} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{magic} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{magic} + @{skill_roll}]] }} {{desc=Cast or analyze magic and know things about famous mages or notable magical events. Classes that can’t cast spells obtain only intellectual and scholarly benefits from this skill.}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_magic" value="-1" class="sheet-circle" style="width:30px;">
-						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Shoot<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_shoot" value="&{template:WWN} {{title=Skill shoot }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{shoot} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{shoot} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{shoot} + @{skill_roll}]] }} {{desc=empty}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Shoot<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_shoot" value="&{template:WWN} {{color=bisque }} {{title=Skill shoot }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{shoot} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{shoot} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{shoot} + @{skill_roll}]] }} {{desc=Fire a bow or crossbow or throw a hurled weapon. Maintain ranged weaponry and fletch arrows.}}" ><span style="font-size: 10px;"></span></button></label></div>     
 						<input type="number" name="attr_shoot" value="-1" class="sheet-circle" style="width:30px;">
-		
-		
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Convince<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_convince" value="&{template:WWN} {{color=bisque }} {{title=Skill Convince }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{convince} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{convince} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{convince} + @{skill_roll}]] }} {{desc=Persuade a listener that something you are saying is true. Naturally, the more implausible the claim or more emotionally repugnant it is to them, the more difficult it is to persuade them. Further more, how they act on their newfound conviction is up to them and their motivations, and may not be perfectly predictable.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_convince" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Notice<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_notice" value="&{template:WWN} {{color=bisque }} {{title=Skill Notice }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{notice} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{notice} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{notice} + @{skill_roll}]] }} {{desc=Notice small details, impending ambushes, hidden features, or concealed objects. Detect subtle smells, sounds, or other sensory input. Notice cannot be used simply to detect a lie, but keen attention can often discern a subject’s emotional state.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_notice" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Sneak<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_sneak" value="&{template:WWN} {{color=bisque }} {{title=Skill Sneak }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{sneak} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{sneak} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{sneak} + @{skill_roll}]] }} {{desc=Move silently, hide in shadows, avoid notice, pick pockets, disguise yourself, pick locks, defeat traps, or otherwise overcome security measures.}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_sneak" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Craft<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_craft" value="&{template:WWN} {{color=bisque }} {{title=Skill Craft }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{craft} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{craft} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{craft} + @{skill_roll}]] }} {{desc=Craft or repair goods and technology appropriate to the PC’s background and society. The Craft skill can be used for a wide range of artisan pursuits, though a GM is within their rights to keep the PC from building complex things that are too far away from their past background and experience. }}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_craft" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Perform<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_perform" value="&{template:WWN} {{color=bisque }} {{title=Skill Perform }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{perform} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{perform} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{perform} + @{skill_roll}]] }} {{desc=Sing, act, dance, orate, or otherwise perform impressively for an audience. Compose music, plays, writings, or other works of performance art. Most performers will have a particular field they excel at, though polymaths might exist if the PC’s background is appropriate for such versatility}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_perform" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Stab<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_stab" value="&{template:WWN} {{color=bisque }} {{title=Skill Stab }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{stab} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{stab} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{stab} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_stab" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Exert<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_exert" value="&{template:WWN} {{color=bisque }} {{title=Skill Exert }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{exert} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{exert} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{exert} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_exert" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Pray<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_pray" value="&{template:WWN} {{color=bisque }} {{title=Skill Pray }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{pray} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{pray} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{pray} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_pray" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Survive<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_survive" value="&{template:WWN} {{color=bisque }} {{title=Skill Survive }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{survive} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{survive} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{survive} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_survive" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Heal<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_heal" value="&{template:WWN} {{color=bisque }} {{title=Skill Heal }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{heal} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{heal} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{heal} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_heal" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Punch<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_punch" value="&{template:WWN} {{color=bisque }} {{title=Skill Punch }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{punch} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{punch} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{punch} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_punch" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Trade<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_trade" value="&{template:WWN} {{color=bisque }} {{title=Skill Trade }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{trade} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{trade} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{trade} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_trade" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Know<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_know" value="&{template:WWN} {{color=bisque }} {{title=Skill Know }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{know} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{know} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{know} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_know" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Ride<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_ride" value="&{template:WWN} {{color=bisque }} {{title=Skill Ride }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{ride} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{ride} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{ride} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_ride" value="-1" class="sheet-circle" style="width:30px;">
+						<div class="sheet-slant"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Work<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_work" value="&{template:WWN} {{color=bisque }} {{title=Skill Work }} {{subtitle=@{character_name} }} {{Straight Skill Roll= [[2d6 + @{work} + @{skill_roll}]] }} {{3D6 keep highest 2 Skill Roll= [[3d6k2 + @{work} + @{skill_roll}]] }}{{4d6 keep highest 2 Skill Roll= [[4d6k2 + @{work} + @{skill_roll}]] }} {{desc=}}" ><span style="font-size: 10px;"></span></button></label></div>     
+						<input type="number" name="attr_work" value="-1" class="sheet-circle" style="width:30px;">
 		
 		
 					</div>
 					<div style="margin-left:10px;margin-top:10px;">
-						<div class="sheet-slant" style="width:80px;"><label class="sheet-slant">Language</label></div>
+						<div class="sheet-slant" style="width:80px;"><label class="sheet-slant sheet-roll-notice" style="cursor:pointer;">Language<button type="roll" class="sheet-blank-button" style="background:transparent; z-index:5; border:none;" name="roll_language" value="&{template:WWN} {{color=bisque }} {{title=Languages Known }} {{subtitle=@{character_name} }} {{desc=@{language} }}" ><span style="font-size: 10px;"></span></button></label></div>
 						<textarea name="attr_language" class="sheet-textarea" style="width:360px; margin-left:5px; margin-right:5px;"></textarea>
 					</div>
 				</div>
@@ -259,20 +302,38 @@
 				
 				<details>
 				<summary><h3>FOCI</h3></summary>
-				<div class="sheet-border"> 
-					<div style="display:grid; grid-template-columns: 35px 280px  35px; grid-template-rows: auto; grid-column-gap: 10px;">
-							<div class="sheet-slant"><label class="sheet-slant">Show?</label></div>
-							<div class="sheet-slant"><label class="sheet-slant">Description</label></div>
-							<div class="sheet-slant"><label class="sheet-slant">Level</label></div>
-					</div>
+				<div class="sheet-border">
+
+					
+						
+							<div style="display:grid; grid-template-columns: 350px  ; grid-template-rows: auto; grid-column-gap: 10px;">
+								<div class="sheet-slant"><label class="sheet-slant">Focus</label></div>
+							</div>
+						
+					
 							<fieldset class="repeating_foci" >
-								<div style="display:grid; grid-template-columns: 45px 300px  40px; grid-template-rows: auto;">
-									<button type="roll" class="sheet-btn" name="roll_foci" value="&{template:dscreen} {{screen=Foci Level: @{foci_level}}}{{story=@{foci}}}" style="width:30px; height:30px;"></button>
-									<textarea class="sheet-textarea" name="attr_foci" style="width:280px;"></textarea>
-									<input type="number" name="attr_foci_level" class="sheet-circle" style="margin:0px; width:25px; height:25px;" >
-									
-								</div>
+							
+							<details>
+								<summary>
+									<h3><input type="text" class="sheet-attribword" name="attr_foci_name" style="width: min(250px, 400px);" /> <span style="margin-left:30px;"> more </span></h3>
+								</summary>
+									<div style="display:grid; grid-template-columns: 35px 280px  35px; grid-template-rows: auto; grid-column-gap: 10px;">
+										<div class="sheet-slant"><label class="sheet-slant">Show</label></div>
+										<div class="sheet-slant"><label class="sheet-slant">Description</label></div>
+										<div class="sheet-slant"><label class="sheet-slant">Level</label></div>
+									</div>
+							
+							
+							
+									<div style="display:grid; grid-template-columns: 45px 300px  40px; grid-template-rows: auto;">
+										<button type="roll" class="sheet-btn" name="roll_foci" value="&{template:WWN} {{color=blue }} {{title=@{foci_name} }} {{subtitle=@{character_name} }} {{focus= }} {{level=@{foci_level} }} {{desc=@{foci} }}" style="width:30px; height:30px;"></button>
+										<textarea class="sheet-textarea" name="attr_foci" style="width:280px;"></textarea>
+										<input type="number" name="attr_foci_level" class="sheet-circle" style="margin:0px; width:25px; height:25px;" >
+										
+									</div>
+							</details>
 							</fieldset>
+					
 							<div style="display:grid; grid-template-columns: 35px 280px  35px; grid-template-rows: auto; grid-column-gap: 10px;">
 							
 							</div>
@@ -287,8 +348,49 @@
 			
 		<div>
 			<details>
-			<summary><h3> </h3></summary>
-			
+			<summary><h3>Weapons</h3></summary>
+			<div class="sheet-border"> <!--total column width is 420px -->
+				<div style="display:grid; grid-template-columns: 150px 80px 80px 80px 80px 80px 30px 50px; grid-template-rows: auto; grid-column-gap:10px;">
+							<div><div class="sheet-slant"><label class="sheet-slant">Weapon</label></div></div>
+							<div class="sheet-slant"><label class="sheet-slant">Dmg</label></div>
+							<div class="sheet-slant"><label class="sheet-slant">Shock</label></div>
+							<div class="sheet-slant"><label class="sheet-slant">Attribute</label></div>
+							<div class="sheet-slant"><label class="sheet-slant">Skill</label></div>
+							<div class="sheet-slant"><label class="sheet-slant">Range</label></div>
+							<div class="sheet-slant"><label class="sheet-slant">Traits</label></div>
+							<!--div class="sheet-slant"><label class="sheet-slant">Cost</label></div-->	
+							<div class="sheet-slant"><label class="sheet-slant">Enc</label></div>
+							<!--div class="sheet-slant"><label class="sheet-slant">Roll</label></div-->
+				</div>
+							<fieldset class="repeating_weapons" >
+								<div style="display:grid; grid-template-columns: 150px 50px 80px 80px 80px 80px 30px 50px; grid-template-rows: auto; grid-column-gap:10px;">
+									<input type="text" name="attr_weapon_name" class="sheet-skillword2" style="width:150px;">
+									<input type="text" name="attr_weapon_damage" class="sheet-skillword2" style="width:50px;">
+									<input type="text" name="attr_weapon_shock" class="sheet-skillword2" style="width:80px;">
+									<select name="attr_weapon_attributes" style="width:80px;">
+										<option value="0" selected="selected">str/dex</option>
+										<option value="1">str</option>
+										<option value="2">dex</option>
+									</select>
+									<select name="attr_weapon_skill" style="width:80px;">
+										<option value="0" selected="selected">punch</option>
+										<option value="1">stab</option>
+										<option value="2">shoot</option>
+										<option value="3">exert</option>
+									</select>
+									<input type="text" name="attr_weapon_range" class="sheet-skillword2" style="width:80px;">
+									<input type="text" name="attr_weapon_traits" class="sheet-skillword2" style="width:80px;">
+									<!-- input type="number" name="attr_weapon_cost" value="-1" class="sheet-circle" style="width:30px;"-->
+									
+									
+								</div>
+							</fieldset>	
+				
+				
+				
+				
+				
+			</div>
 			</details>
 			
 			
