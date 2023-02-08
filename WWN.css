@@ -18,12 +18,12 @@
 	 visibility:hidden;!important;
  }
     /*  === === ===     === === === */
-h1, h2{
-	color: white;
+h1, h2, h4{
+	color: silver;
 	text-shadow:0px 0px 0.5em black;
 }
  h3 {
-	color: white;
+	color: silver;
 	text-shadow:0px 0px 0.5em black;
 	cursor: pointer;
 }
@@ -226,7 +226,7 @@ div.shield {
 
 
     /*  === === ===     === === === */
-div.sheet-tab-content { 
+div.sheet-tab1, div.sheet-tab-content { 
     display: none; 
 }
 
@@ -245,7 +245,7 @@ input.sheet-tab6:checked ~ div.sheet-tab6,
 input.sheet-tab7:checked ~ div.sheet-tab7 {
     display: block;
 }
-
+.sheet-show2:checked ~ .sheet-flexed,
 .sheet-show1:checked ~ .sheet-flexed {
 	display: flex; 
 	flex-direction: row; 
