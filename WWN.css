@@ -10,12 +10,12 @@
 }
 .ui-dialog .button[type=roll].sheet-blank-button::before {
   content: '';
-  content: ""!important;
+  content: "";
 }
 
  input.button[type=roll].sheet-blank-button{
 	 background:transparent; z-index:5; border:none;
-	 visibility:hidden;!important;
+	 visibility:hidden;
  }
     /*  === === ===     === === === */
 h1, h2, h4{
@@ -804,6 +804,7 @@ input.sheet-hidden {
     /* === Text area === */
 .charsheet textarea{
     resize:vertical;
+	height:450px;
 }
     /* === general === */
 .charsheet .sheet-right {
