@@ -1,6 +1,6 @@
 
 
-Library of equipment using ChatSetAttr mod 
+Library of equipment using ChatSetAttr API mod  Need Pro Account to benefit from it.  Can add to an ability, macro or on the listed notes in the sheet to use for adding equipment with a click of a button to the selected token's character sheet.
 
 
 [Arrows-20](!setattr --sel --silent --repeating_stowedorstored_-CREATE_items_name|Arrows, 20 --repeating_stowedorstored_-CREATE_items_quantity|1 --repeating_stowedorstored_-CREATE_items_encumbrance|1  --repeating_resource_-CREATE_resource_name|Quiver of Arrows --repeating_resource_-CREATE_cur_resource|20|20) 2sp
